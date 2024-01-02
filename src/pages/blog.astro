@@ -1,5 +1,7 @@
 ---
+const title = "Blog"
 
+const skills = ['js', 'ts', 'java', 'spring', 'c#', '.net', 'rust'];
 ---
 
 <html lang="en">
@@ -8,11 +10,11 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{title}</title>
 		<a href="/">Home</a>
 		<a href="/about/">About</a>
 		<a href="/blog/">Blog</a>
-        <h1>Blog</h1>
+        <h1>{title}</h1>
         <h2>Here I will post my dev blogs!</h2>
         <p>It'll take some time to finish building my blog first!</p>
         <p>After that, some posts with Markdown will be uploaded.</p>
@@ -21,7 +23,30 @@
 		  <li><a href="/posts/post-2">post 2</a></li>
 		  <li><a href="/posts/post-3">post 3</a></li>
 		</ul>
+		<h3>skills</h3>
+		<ul class="skills-list">
+		  {
+			skills.map(skill => (
+			  <li>{skill}</li>
+			))
+		  }
+		</ul>
 	</head>
 	<body>
 	</body>
 </html>
+
+<style>
+ul.skills-list {
+  list-style: none;
+
+}
+
+ul.skills-list li {
+  display: inline;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 3px 10px;
+  margin: 3px;
+}
+</style>
