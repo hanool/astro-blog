@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css'
+
 const title = "Blog";
 const skills = ["js", "ts", "java", "spring", "c#", ".net", "rust"];
 const featuredColor = "red";
@@ -15,6 +17,10 @@ const featuredWeight = 600;
 		<style define:vars={{ featuredColor, featuredWeight }}>
 			ul.skills-list {
 				list-style: none;
+			}
+
+			h1 {
+			  font-size: 4rem;
 			}
 
 			ul.skills-list li {
