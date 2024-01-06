@@ -1,67 +1,47 @@
 ---
-import '../styles/global.css'
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const title = "Blog";
 const skills = ["js", "ts", "java", "spring", "c#", ".net", "rust"];
 const featuredColor = "red";
 const featuredWeight = 600;
 ---
+<BaseLayout pageTitle={title}>
+  <h2>Here I will post my dev blogs!</h2>
+  <p>It'll take some time to finish building my blog first!</p>
+  <p>After that, some posts with Markdown will be uploaded.</p>
+  <ul>
+	  <li><a href="/posts/post-1">post 1</a></li>
+	  <li><a href="/posts/post-2">post 2</a></li>
+	  <li><a href="/posts/post-3">post 3</a></li>
+  </ul>
+  <h3>skills</h3>
+  <ul class="skills-list">
+	  {
+		  skills.map((skill, idx) => (
+			  <li class={idx === 1 ? "featured" : ""}>{skill}</li>
+		  ))
+	  }
+  </ul>
+</BaseLayout>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<style define:vars={{ featuredColor, featuredWeight }}>
-			ul.skills-list {
-				list-style: none;
-			}
+<style define:vars={{ featuredColor, featuredWeight }}>
+  ul.skills-list {
+	  list-style: none;
+  }
 
-			h1 {
-			  font-size: 4rem;
-			}
+  ul.skills-list li {
+	  display: inline;
+	  border: 1px solid black;
+	  border-radius: 5px;
+	  padding: 3px 10px;
+	  margin: 3px;
+  }
 
-			ul.skills-list li {
-				display: inline;
-				border: 1px solid black;
-				border-radius: 5px;
-				padding: 3px 10px;
-				margin: 3px;
-			}
+  ul.skills-list li.featured {
+	  border: 2px solid var(--featuredColor);
+	  color: var(--featuredColor);
+	  font-weight: var(--featuredWeight);
+  }
+</style>
 
-			ul.skills-list li.featured {
-				border: 2px solid var(--featuredColor);
-				color: var(--featuredColor);
-				font-weight: var(--featuredWeight);
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<h1>{title}</h1>
-		<h2>Here I will post my dev blogs!</h2>
-		<p>It'll take some time to finish building my blog first!</p>
-		<p>After that, some posts with Markdown will be uploaded.</p>
-		<ul>
-			<li><a href="/posts/post-1">post 1</a></li>
-			<li><a href="/posts/post-2">post 2</a></li>
-			<li><a href="/posts/post-3">post 3</a></li>
-		</ul>
-		<h3>skills</h3>
-		<ul class="skills-list">
-			{
-				skills.map((skill, idx) => (
-					<li class={idx === 1 ? "featured" : ""}>{skill}</li>
-				))
-			}
-		</ul>
-		<Footer />
-		<script>
-		  import "../scripts/menu.js"
-		</script>
-	</body>
-</html>
