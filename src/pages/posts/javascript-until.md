@@ -1,5 +1,11 @@
-# How to implement custom `await until condition` with Javascript.
-
+---
+layout: '../../layouts/BlogPostLayout.astro'
+title: 'How to implement custom `await until condition` with Javascript.'
+pubDate: 2024-01-01
+description: 'Learn how to implement `await until condition` with Javascript'
+author: 'hanool'
+tags: ["JavScript", "Promise", "Async"]
+---
 ## Things to learn
 
 1. Promise Object

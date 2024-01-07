@@ -1,0 +1,23 @@
+---
+import BaseLayout from './BaseLayout.astro'
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout pageTitle={frontmatter.title} >
+  <div class="flex">
+	<p class="right">written by <strong>{frontmatter.author}</strong></p>
+  </div>
+<slot />
+</BaseLayout>
+
+<style>
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.right {
+  margin-left: auto;
+  align-self: last;
+}
+</style>
